@@ -8,8 +8,8 @@ env:
 on:
   # schedule:  # Everday
     # cron: {{ env.CRON_TIME }}
-  repository_dispatch:  # For requests bassed commit
-    types: start_action  # <<< WORK HERE
+  # repository_dispatch:  # For requests bassed commit
+    # types: start_action  # <<< WORK HERE
 
 jobs:
   build:
