@@ -1,3 +1,3 @@
 # everday-action-commit
 
-Fake commits for better looking account.
+Commit everyday(or any time) with this repo
