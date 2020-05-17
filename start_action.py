@@ -1,4 +1,4 @@
-rom pprint import pprint
+from pprint import pprint
 import requests
 import json
 import os
@@ -7,7 +7,8 @@ import os
 # Replace with your info...
 
 GITHUB_USERNMAE = "bin0x00"
-GITHUB_REPO = "playing-with-github-actions"
+GITHUB_REPO = "everday-action-commit"
+
 AUTH_TOKEN = os.environ["GITHUB_REPO_TOKEN"]
 DATA = {}
 
@@ -18,4 +19,4 @@ headers = {
 }
 data = {"event_type": "start_action", "client_payload": DATA}
 
-requests.post(url, headers=headers, data=json.dumps(data)).text
+requests.post(url, headers=headers, data=json.dumps(data))
