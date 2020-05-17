@@ -22,7 +22,7 @@ jobs:
 
     - name: Re setting the url for `origin`
       run: |
-        git remote set-url origin https://bin0x00:${{ secrets.GITHUB_TOKEN }}@github.com/everday-action-commit/ol3-1.git
+        git remote set-url origin https://bin0x00:${{ secrets.GITHUB_TOKEN }}@github.com/bin0x00/everday-action-commit.git
 
     - name: Adding git info
       run: |
