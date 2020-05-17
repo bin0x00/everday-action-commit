@@ -1,15 +1,15 @@
 name: Testing Actions
 
-env:
-  CRON_TIME: '00 00 * * *'
-  GITHUB_USERNMAE: 'bin0x00'
-  GITHUB_REPO: 'everday-action-commit'
+#  Replase the fallowing according to your needs
+# CRON_TIME: '00 00 * * *'
+# GITHUB_USERNMAE: 'bin0x00'
+# GITHUB_REPO: 'everday-action-commit'
 
 on:
   schedule:  # Everday
-    cron: {{ env.CRON_TIME }}
-  # repository_dispatch:  # For requests bassed commit
-    # types: start_action  # <<< WORK HERE
+    cron: '00 00 * * *'
+  repository_dispatch:  # For requests bassed commit
+    types: start_action  # <<< WORK HERE
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
 
     - name: Re setting the url for `origin`
       run: |
-        git remote set-url origin https://${{ env.GITHUB_USERNMAE }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPO }}/ol3-1.git
+        git remote set-url origin https://bin0x00:${{ secrets.GITHUB_TOKEN }}@github.com/everday-action-commit/ol3-1.git
 
     - name: Creating an empty commit 
       run: |
