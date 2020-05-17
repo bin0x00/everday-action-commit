@@ -1,0 +1,32 @@
+name: Testing Actions
+
+env:
+  CRON_TIME: '00 00 * * *'
+  GITHUB_USERNMAE: 'bin0x00'
+  GITHUB_REPO: 'everday-action-commit'
+
+on:
+  schedule:  # Everday
+    cron: {{ env.CRON_TIME }}
+  repository_dispatch:  # For requests bassed commit
+    types: start_action  # <<< WORK HERE
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Getting the repo
+      uses: actions/checkout@v2
+
+    - name: Re setting the url for `origin`
+      run: |
+        git remote set-url origin https://${{ env.GITHUB_USERNMAE }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPO }}/ol3-1.git
+
+    - name: Creating an empty commit 
+      run: |
+        git commit --allow-empty -m "My amazing commit"
+    
+    - name: Finilly pushing the repo
+      run: |
+        git push origin master
